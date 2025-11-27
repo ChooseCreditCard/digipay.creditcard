@@ -4,195 +4,249 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>DigiPay.Creditcard – Digital Payment Flows & Card Rails</title>
-  <meta name="description"
-        content="DigiPay.creditcard explains digital payment flows: online checkouts, wallets, virtual cards, recurring payments and how money moves on card rails." />
+  <title>DigiPay.Creditcard – Digital Payments & Modern Checkout Experiences</title>
+  <meta name="description" content="DigiPay.creditcard explains digital payments: online checkouts, card-on-file, network tokens, app payments and user experience across devices." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://digipay.creditcard/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="DigiPay.Creditcard – Digital Payment Flows & Card Rails" />
-  <meta property="og:description"
-        content="From online checkout to settlement – how digital card payments actually move through processors, gateways and networks." />
+  <meta property="og:title" content="DigiPay.Creditcard – Digital Payments Explained" />
+  <meta property="og:description" content="Learn how digital card payments work online: tokenization, processors, card-on-file systems, 3DS, fraud checks and user experience." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://digipay.creditcard/" />
-  <meta property="og:image" content="https://digipay.creditcard/preview.png" />
+  <meta property="og:image" content="https://choose.creditcard/preview.png?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=og_image" />
 
-  <link rel="stylesheet" href="/styles.css" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DigiPay.Creditcard – Digital Payment UX" />
+  <meta name="twitter:description" content="Independent explanation of digital-first payment flows and online checkout UX." />
+  <meta name="twitter:image" content="https://choose.creditcard/preview.png?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=twitter_image" />
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-64FE63JQ3H"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config','G-64FE63JQ3H');
+    gtag('config', 'G-64FE63JQ3H');
   </script>
+
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body class="bg-slate-950 text-slate-100">
 
-  <!-- HEADER – CC unified -->
+  <!-- Header -->
   <header class="site-header">
     <div class="nav-inner max-w-6xl">
+
       <div class="brand">
         <div class="cc-logo">CC</div>
         <div class="brand-text">
-          <span class="brand-title">DigiPay.creditcard</span>
-          <span class="brand-subtitle">Digital · Rails · Wallets · Tokens</span>
+          <div class="brand-title">DigiPay.Creditcard</div>
+          <div class="brand-subtitle">Digital Payments & Checkout UX</div>
         </div>
       </div>
 
       <nav class="nav-links">
-        <a href="https://fin.creditcard/?utm_source=digipay.creditcard&utm_medium=nav&utm_campaign=collection">
-          Collection
-        </a>
-        <a href="https://tech.creditcard/?utm_source=digipay.creditcard&utm_medium=nav&utm_campaign=tech">
-          Tech
-        </a>
-        <a href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=nav&utm_campaign=choose">
-          Choose
-        </a>
+        <a href="#overview">Overview</a>
+        <a href="#experience">UX</a>
+        <a href="#compare">Compare</a>
       </nav>
+
     </div>
   </header>
 
   <main class="cc-page">
 
-    <p class="cc-breadcrumb">DigiPay.creditcard · Digital · Rails · Wallets · Tokens</p>
+    <!-- Breadcrumb -->
+    <div class="cc-breadcrumb">
+      <a href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=breadcrumb">Home</a>
+      &nbsp;›&nbsp;
+      Digital Payments
+    </div>
 
-    <!-- HERO -->
+    <!-- Hero -->
     <section class="hero">
-      <h1>Digital Card Payments, Explained</h1>
-      <p class="hero-lead">
-        From online checkout to settlement – how digital card payments actually move.
-      </p>
-      <a class="cta"
-         href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=digipay_top">
-        Compare Digital-First Cards
-      </a>
-    </section>
+      <div class="hero-content">
+        <h1>How Digital Card Payments Work Online</h1>
+        <p class="hero-lead">
+          DigiPay.Creditcard explains online payment UX: tokenization, card-on-file, one-click checkouts, 3DS authentication and why some merchants feel smoother than others.
+        </p>
 
-    <!-- What is DigiPay -->
-    <section class="section">
-      <h2>What is “digital pay” in card terms?</h2>
-      <p class="small">
-        DigiPay covers all the ways a card can be used without plastic:
-        online checkouts, in-app purchases, recurring billing, wallets and tokenized card-on-file.
-      </p>
-      <ul class="list">
-        <li>Online one-time payments</li>
-        <li>In-app and in-game purchases</li>
-        <li>Subscriptions &amp; recurring billing</li>
-        <li>Stored cards at merchants (card-on-file)</li>
-        <li>Mobile &amp; web wallets</li>
-      </ul>
-    </section>
-
-    <!-- Flow -->
-    <section class="section">
-      <h2>Typical digital payment flow</h2>
-      <div class="cluster-grid">
-        <div class="cluster-card">
-          <h3>1. Checkout</h3>
-          <p class="small">Card entry, wallet button or saved card.</p>
-        </div>
-        <div class="cluster-card">
-          <h3>2. Gateway</h3>
-          <p class="small">Gateway formats &amp; forwards transaction.</p>
-        </div>
-        <div class="cluster-card">
-          <h3>3. Processor &amp; network</h3>
-          <p class="small">Visa/Mastercard rails + issuing bank.</p>
-        </div>
-        <div class="cluster-card">
-          <h3>4. Authorization</h3>
-          <p class="small">Risk checks, SCA, issuer decision.</p>
-        </div>
-        <div class="cluster-card">
-          <h3>5. Settlement</h3>
-          <p class="small">Funds captured and settled to merchant.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Risk & SCA -->
-    <section class="section">
-      <h2>Risk, SCA and 3-D Secure</h2>
-      <p class="small">
-        Digital payments rely heavily on risk intelligence and step-up authentication:
-      </p>
-      <ul class="list">
-        <li>Device and browser fingerprinting</li>
-        <li>Behavioural data (location, velocity, patterns)</li>
-        <li>3-D Secure / Strong Customer Authentication</li>
-        <li>Exemptions for low-risk or recurring billing</li>
-      </ul>
-    </section>
-
-    <!-- Digital-first cards -->
-    <section class="section">
-      <h2>Digital-first card products</h2>
-      <p class="small">
-        These cards are designed for wallets &amp; online-first usage:
-      </p>
-      <ul class="list">
-        <li>Instant virtual card after approval</li>
-        <li>Strong Apple/Google Pay integration</li>
-        <li>Rewards on online and wallet transactions</li>
-        <li>Easy number replacement</li>
-        <li>Controls for subscriptions &amp; merchant types</li>
-      </ul>
-    </section>
-
-    <!-- Links cluster -->
-    <section class="section">
-      <h2>Explore the digital payments cluster</h2>
-      <p class="small">Related domains:</p>
-      <div class="cluster-grid">
-        <a class="cluster-card"
-           href="https://digi.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=digi">
-          <h3>Digi.creditcard</h3>
-          <p class="small">Digital card basics &amp; virtual cards.</p>
-        </a>
-
-        <a class="cluster-card"
-           href="https://digitalpay.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=digitalpay">
-          <h3>DigitalPay.creditcard</h3>
-          <p class="small">Digital wallets &amp; tokenized rails.</p>
-        </a>
-
-        <a class="cluster-card"
-           href="https://virtualpay.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=virtualpay">
-          <h3>VirtualPay.creditcard</h3>
-          <p class="small">Virtual cards &amp; card-on-file controls.</p>
+        <a class="cta" href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=hero_cta">
+          Find digital-first credit cards
         </a>
       </div>
     </section>
 
-    <!-- CTA bottom -->
+    <!-- Sections -->
+    <section id="overview" class="section">
+      <h2>What Is Digital Card Payment?</h2>
+      <p>Digital payments involve storing, transmitting and authorizing card data online. Behind the scenes:</p>
+
+      <ul class="list">
+        <li>Card data may be replaced with network tokens.</li>
+        <li>3D Secure is triggered for higher-risk purchases.</li>
+        <li>Merchants rely on gateways and processors for routing.</li>
+        <li>Issuers run fraud scoring before approving.</li>
+      </ul>
+
+      <p>Most online checkouts complete in under 500 ms — even with multiple systems involved.</p>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Why Some Checkouts Feel Instant</h2>
+      <p>Merchants with strong UX often provide:</p>
+      <ul class="list">
+        <li><strong>Card-on-file tokens:</strong> No need to re-enter card numbers.</li>
+        <li><strong>One-click checkout:</strong> Stored tokens + frictionless 3DS.</li>
+        <li><strong>Smart routing:</strong> The gateway chooses the fastest processor.</li>
+        <li><strong>Pre-authorization:</strong> Minimal holds and declines.</li>
+      </ul>
+
+      <p>When a site feels slow, it’s usually the authorization path — not the card.</p>
+    </section>
+
     <section class="section">
-      <h2>Find the right digital-first card</h2>
+      <h2>Strong Authentication (3DS2)</h2>
+      <p>3D Secure 2 introduced a smoother model with biometric flows inside the bank app:</p>
+
+      <ul class="list">
+        <li>Fewer SMS codes</li>
+        <li>App-based approvals</li>
+        <li>Lower friction for trusted devices</li>
+        <li>Better fraud detection for merchants</li>
+      </ul>
+
+      <p>Many issuers now allow “frictionless exemptions” for low-risk shoppers.</p>
+    </section>
+
+    <section class="section">
+      <h2>Card-on-File, Network Tokens & Wallet Storage</h2>
+      <p>Storing card data online used to be risky. Now merchants rely on:</p>
+
+      <ul class="list">
+        <li><strong>Network tokens (Visa / Mastercard):</strong> Auto-updated when cards change.</li>
+        <li><strong>Gateway vault tokens:</strong> Replace raw card numbers for recurring billing.</li>
+        <li><strong>Apple/Google Pay tokens:</strong> Device-level secure elements.</li>
+      </ul>
+
+      <p>This drastically improves reliability when cards are renewed or reissued.</p>
+    </section>
+
+    <!-- Comparison Table -->
+    <section id="compare" class="section">
+      <h2>Comparing Digital Payment UX Factors</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Factor</th>
+              <th>What Good Looks Like</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3DS Handling</td>
+              <td>Biometric app approvals</td>
+              <td>Faster & fewer failures</td>
+            </tr>
+            <tr>
+              <td>Tokenization</td>
+              <td>Network tokens + auto-updates</td>
+              <td>Fewer declined subscriptions</td>
+            </tr>
+            <tr>
+              <td>Routing</td>
+              <td>Low-latency global processors</td>
+              <td>Higher success rate</td>
+            </tr>
+            <tr>
+              <td>Wallet Integration</td>
+              <td>Apple Pay, Google Pay, Browser wallets</td>
+              <td>Smoother checkout on devices</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <p class="small">
-        DigiPay.creditcard explains how the rails work.<br />
-        To compare real products:
+        To compare digital-first cards and online payment success rates, visit  
+        <a href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=comparison_section">
+          Choose.Creditcard
+        </a>.
       </p>
-      <a class="cta"
-         href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=digipay_bottom">
-        Compare on Choose.Creditcard
+    </section>
+
+    <!-- Cluster Links -->
+    <section class="section">
+      <h2>Explore Related Digital Microsites</h2>
+      <div class="cluster-grid">
+
+        <a class="cluster-card" href="https://digi.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_digi">
+          <h3>Digi.Creditcard</h3>
+          <p>Infrastructure behind digital rails.</p>
+        </a>
+
+        <a class="cluster-card" href="https://digitalpay.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_digitalpay">
+          <h3>DigitalPay.Creditcard</h3>
+          <p>Digital-first spending and checkout interfaces.</p>
+        </a>
+
+        <a class="cluster-card" href="https://virtualpay.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_virtualpay">
+          <h3>VirtualPay.Creditcard</h3>
+          <p>Virtual cards and tokenized credentials.</p>
+        </a>
+
+        <a class="cluster-card" href="https://nfc.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_nfc">
+          <h3>NFC.Creditcard</h3>
+          <p>Contactless signal & hardware tech.</p>
+        </a>
+
+        <a class="cluster-card" href="https://access.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_access">
+          <h3>Access.Creditcard</h3>
+          <p>Card controls, authentication & security.</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section class="section">
+      <h2>Part of The CreditCard Collection</h2>
+      <p class="small">
+        DigiPay.Creditcard is the digital-experience spoke in <strong>The CreditCard Collection</strong>.
+      </p>
+      <p class="small">
+        We break down the UX and infrastructure behind every online purchase — without promoting any issuer.
+      </p>
+      <p class="small">
+        For unbiased card comparisons across APR, rewards, fees and digital UX, visit  
+        <a href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=collection_section">
+          Choose.Creditcard
+        </a>.
+      </p>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="section">
+      <h2>Choose a Digital-Optimized Card</h2>
+      <p class="small">
+        The right digital-first card means fewer declines, better wallet performance and smoother online checkouts.
+      </p>
+      <a class="cta" href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=bottom_cta">
+        Compare digital-ready cards
       </a>
     </section>
 
   </main>
 
-  <!-- MINI FOOTER -->
+  <!-- Footer -->
   <footer class="mini-footer">
-    <p class="mini-footer-main">
-      © 2025 The CreditCard Collection — ronarn AS
-    </p>
-    <p class="mini-footer-contact">
-      Contact: <a href="mailto:support@cc.creditcard">support@cc.creditcard</a>
-    </p>
+    <p class="mini-footer-main">© 2025 The CreditCard Collection — ronarn AS</p>
+    <p class="mini-footer-contact">Contact: <a href="mailto:support@cc.creditcard">support@cc.creditcard</a></p>
   </footer>
 
 </body>
