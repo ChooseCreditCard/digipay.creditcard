@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>DigiPay.Creditcard – Digital Payment Flows & Card Rails Explained</title>
-  <meta name="description" content="How digital payment flows work around credit cards: wallets, APIs, tokenization, merchant routing, settlement and security layers for modern card payments." />
+  <title>DigiPay.Creditcard – How Digital Payment Gateways Work</title>
+  <meta name="description" content="Understand how digital payment gateways handle card transactions: routing, authorization, fees, risk checks and settlement. Neutral education from The CreditCard Collection." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://digipay.creditcard/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="DigiPay.Creditcard – Digital Payment Flows & Card Rails Explained" />
-  <meta property="og:description" content="Neutral overview of how digital wallets, card-on-file, APIs and tokenization use credit-card rails underneath modern payment experiences." />
+  <meta property="og:title" content="DigiPay.Creditcard – How Digital Payment Gateways Work" />
+  <meta property="og:description" content="Independent explanation of how digital payment gateways route card payments, apply fees, run risk checks and settle funds to merchants." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://digipay.creditcard/" />
   <meta property="og:image" content="https://choose.creditcard/preview.png?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=og_image" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DigiPay.Creditcard – Digital Payment Flows & Card Rails Explained" />
-  <meta name="twitter:description" content="Learn how digital-first payment journeys still rely on card networks: from one-click checkout and in-app payments to tokenization and risk engines." />
+  <meta name="twitter:title" content="DigiPay.Creditcard – How Digital Payment Gateways Work" />
+  <meta name="twitter:description" content="Learn what a digital payment gateway does between the checkout button and your card statement – in neutral, non-technical language." />
   <meta name="twitter:image" content="https://choose.creditcard/preview.png?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=twitter_image" />
 
   <!-- GA4 -->
@@ -34,9 +34,10 @@
   <!-- Tailwind for utility classes -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Your shared minisite styles -->
+  <!-- Shared minisite styles -->
   <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body class="bg-slate-950 text-slate-100">
   <header class="site-header">
     <div class="nav-inner max-w-6xl">
@@ -44,13 +45,14 @@
         <div class="cc-logo">CC</div>
         <div class="brand-text">
           <div class="brand-title">DigiPay.Creditcard</div>
-          <div class="brand-subtitle">Digital Payment Flows on Card Rails</div>
+          <div class="brand-subtitle">Digital Payment Gateways Explained</div>
         </div>
       </div>
       <nav class="nav-links" aria-label="Page navigation">
         <a href="#overview">Overview</a>
-        <a href="#mechanics">How It Works</a>
-        <a href="#compare">Compare</a>
+        <a href="#flow">Payment Flow</a>
+        <a href="#fees">Fees &amp; Risk</a>
+        <a href="#integration">Integration</a>
       </nav>
     </div>
   </header>
@@ -66,153 +68,213 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
-        <h1>How Digital Payment Journeys Use Credit-Card Rails</h1>
+        <h1>How Digital Payment Gateways Handle Card Transactions</h1>
         <p class="hero-lead">
-          One-click checkout, in-app purchases and “pay with your phone” feel new, but most still rely on familiar card networks underneath. This page breaks down how digital payment flows are assembled on top of credit-card infrastructure.
+          When you click “Pay now”, a digital payment gateway connects the online store to
+          card networks and banks. This page explains, in plain language, what a gateway does
+          with your card details, how fees are applied, and how risk checks are run in the
+          background.
         </p>
-        <a class="cta" href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=hero_cta">
-          Compare technology-focused credit cards
+        <a class="cta" href="https://choose.creditcard/technology/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=hero_cta">
+          Explore the Technology &amp; Payments hub
         </a>
       </div>
     </section>
 
-    <!-- Content sections -->
+    <!-- Overview -->
     <section id="overview" class="section">
-      <h2>What Do We Mean by “Digital Payments” on Cards?</h2>
-      <p>Digital payments cover everything from stored cards in an app to invisible card-on-file charges running in the background of a subscription. In most cases, the merchant or platform holds a tokenized representation of your card and initiates charges without you physically presenting plastic.</p>
-      <p>The user experience may look radically different—QR codes, super apps, embedded checkout—but the underlying authorization, clearing and settlement flows often follow the same patterns that power traditional card transactions.</p>
+      <h2>What Is a Digital Payment Gateway?</h2>
+      <p>
+        A digital payment gateway is the technical middle layer between a merchant
+        (online shop, app, subscription service) and the card networks and banks that
+        move money. It collects payment details securely, builds an authorization request,
+        sends it to the processor or acquiring bank, and returns an approve/decline outcome.
+      </p>
+      <p>
+        Gateways are not the same as card issuers or wallets. They do not decide your
+        credit limit or interest rate. Instead, they focus on connectivity, security and
+        routing – making sure a payment request is formatted correctly, encrypted and sent
+        to the right place.
+      </p>
     </section>
 
-    <section id="mechanics" class="section">
-      <h2>How a DigiPay Transaction Flows End to End</h2>
-      <p>When you confirm a purchase in an app or on a website, the merchant’s payment gateway formats a request using a stored card token or encrypted card data. That request is sent to an acquirer, routed over the card network and evaluated by your issuer in real time.</p>
-      <p>Along the way, extra data points—device fingerprints, IP addresses, session history, 3-D Secure results—are attached to the authorization. Issuer risk systems use this context to decide whether to approve, challenge or decline the transaction.</p>
+    <!-- Flow -->
+    <section id="flow" class="section">
+      <h2>From Checkout Click to Authorization</h2>
+      <p>
+        A typical digital gateway flow looks like this:
+      </p>
+      <ol>
+        <li><strong>Checkout</strong> – You enter card details or select a stored card/wallet.</li>
+        <li><strong>Tokenization</strong> – The gateway replaces raw card numbers with a token for storage.</li>
+        <li><strong>Authorization request</strong> – Data is packaged and routed to the processor/acquirer.</li>
+        <li><strong>Network &amp; issuer checks</strong> – Card network and your bank run balance, risk and limit checks.</li>
+        <li><strong>Response</strong> – Approved or declined, with a reason code.</li>
+        <li><strong>Capture &amp; settlement</strong> – Later, the merchant captures funds and they settle to its account.</li>
+      </ol>
+      <p>
+        Gateways may add their own fraud checks before submitting to the network – for example,
+        blocking obvious misuse or asking for additional authentication when a risk score is high.
+      </p>
     </section>
 
+    <!-- Fees & Risk -->
+    <section id="fees" class="section">
+      <h2>Fees, Pricing Models and Risk Management</h2>
+      <p>
+        Payment gateways usually charge merchants using one or more of these models:
+      </p>
+      <ul>
+        <li><strong>Per-transaction fee</strong> – a fixed amount plus a percentage of the transaction.</li>
+        <li><strong>Monthly platform fee</strong> – for access to the gateway and tools.</li>
+        <li><strong>Blended rate</strong> – one simple %, regardless of card type or network cost.</li>
+        <li><strong>Interchange++</strong> – pass-through of underlying network costs plus a gateway markup.</li>
+      </ul>
+      <p>
+        Gateways and processors also share risk around chargebacks and fraud. Some offer
+        risk-management tools such as:
+      </p>
+      <ul>
+        <li>velocity checks (too many transactions in a short period)</li>
+        <li>device fingerprinting and geolocation checks</li>
+        <li>3-D Secure or similar step-up authentication flows</li>
+        <li>blacklists/whitelists based on prior behaviour</li>
+      </ul>
+      <p>
+        These tools help merchants reduce fraud but can also cause friction if tuned too
+        aggressively, resulting in more declined legitimate payments.
+      </p>
+    </section>
+
+    <!-- Integration -->
+    <section id="integration" class="section">
+      <h2>How Gateways Integrate With Apps and Websites</h2>
+      <p>
+        From a business or developer perspective, digital gateways expose APIs, SDKs and
+        hosted checkout pages so you do not need to build card-processing logic from scratch.
+        Typical integration patterns include:
+      </p>
+      <ul>
+        <li><strong>Hosted payment page</strong> – redirect to the gateway’s secure page.</li>
+        <li><strong>Embedded card fields</strong> – gateway-hosted input fields inside your checkout.</li>
+        <li><strong>Direct API integration</strong> – full control for large merchants and platforms.</li>
+      </ul>
+      <p>
+        Gateways often bundle extra features around subscriptions, invoicing, payouts and
+        alternative payment methods (wallets, bank transfers, local payment schemes) so
+        merchants can manage everything from a single dashboard.
+      </p>
+    </section>
+
+    <!-- Comparison-style table -->
     <section class="section">
-      <h2>Tokenization, Card-on-File and Network Vaults</h2>
-      <p>Instead of storing the raw card number, many platforms rely on tokenization. A token replaces the card number, and only the card network or issuer can map the token back to the real credentials. The merchant holds the token and uses it for future charges.</p>
-      <p>Some issuers and networks run their own “network token vaults”, which keep tokens alive even when a card is reissued. That lets subscriptions and recurring payments continue without you manually updating card details on every service.</p>
-    </section>
-
-    <section class="section">
-      <h2>APIs, PSPs and Embedded Payment Providers</h2>
-      <p>Modern digital payments are orchestrated through APIs. Payment service providers (PSPs) expose endpoints for capturing, confirming and refunding card transactions, while abstracting away scheme rules and regional differences.</p>
-      <p>For cardholders, this means the same card can behave differently depending on which PSP or platform is initiating the charge. Strong customer authentication prompts, currency handling and fee structures can vary between providers even when the card itself is identical.</p>
-    </section>
-
-    <section class="section">
-      <h2>Security, SCA and Fraud Controls in Digital Journeys</h2>
-      <p>Because the card is not physically present, digital payments rely heavily on layered security: device recognition, behavioral analytics, 3-D Secure flows and real-time velocity checks. These tools help issuers distinguish a normal login from a takeover attempt.</p>
-      <p>Cardholders can further reduce risk by enabling alerts in their banking app, reviewing merchants with card-on-file access and periodically revoking tokens for services that are no longer used.</p>
-    </section>
-
-    <!-- Comparison block -->
-    <section id="compare" class="section">
-      <h2>Compare Digital-Payment Features Across Cards</h2>
+      <h2>Gateway Features to Compare</h2>
       <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
-              <th>Feature</th>
-              <th>What to Look For</th>
-              <th>Why It Matters</th>
+              <th>Feature area</th>
+              <th>What to look for</th>
+              <th>Why it matters</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Tokenization Support</td>
-              <td>Network tokens, wallet tokens and card-on-file compatibility</td>
-              <td>Improves security and keeps recurring payments running after reissues.</td>
+              <td>Supported methods</td>
+              <td>Cards, wallets, bank transfers, local schemes</td>
+              <td>Determines how many customers can pay using their preferred method.</td>
             </tr>
             <tr>
-              <td>App &amp; Wallet Controls</td>
-              <td>Per-merchant controls, online-only locks, subscription views</td>
-              <td>Gives you more visibility and control over digital charges.</td>
+              <td>Pricing model</td>
+              <td>Transparent % + fixed fee, clear cross-border rules</td>
+              <td>Small differences in fees can add up at scale.</td>
             </tr>
             <tr>
-              <td>SCA Experience</td>
-              <td>Biometric approvals, clear 3-D Secure flows</td>
-              <td>Affects how smooth or disruptive online checkout feels.</td>
+              <td>Risk tools</td>
+              <td>Fraud rules, 3-D Secure options, dashboards</td>
+              <td>Helps balance fraud control vs. conversion rate.</td>
             </tr>
             <tr>
-              <td>Merchant Insights</td>
-              <td>Readable statements, logo/brand mapping, category data</td>
-              <td>Makes it easier to recognize legitimate vs suspicious transactions.</td>
+              <td>Developer experience</td>
+              <td>API quality, documentation, sandbox environments</td>
+              <td>Affects how quickly new payment flows can be launched.</td>
             </tr>
             <tr>
-              <td>Dispute &amp; Chargeback Tools</td>
-              <td>In-app dispute initiation, evidence upload, status tracking</td>
-              <td>Important when something goes wrong with a digital purchase.</td>
+              <td>Reporting &amp; payouts</td>
+              <td>Clear settlement reports, payout schedule</td>
+              <td>Impacts reconciliation, cash flow and accounting.</td>
             </tr>
           </tbody>
         </table>
       </div>
       <p class="small">
-        For live product-by-product comparisons, visit
-        <a href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=comparison_section">
-          Choose.Creditcard
+        For broader context on payment technology and card features, see the
+        <a href="https://choose.creditcard/technology/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=comparison_section">
+          Technology &amp; Payments hub on Choose.Creditcard
         </a>.
       </p>
     </section>
 
     <!-- Cluster links -->
     <section class="section">
-      <h2>Explore Related Payment Technologies</h2>
+      <h2>Explore Related Payment Technology Topics</h2>
       <div class="cluster-grid">
         <a class="cluster-card" href="https://digitalpay.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_digitalpay">
           <h3>DigitalPay.Creditcard</h3>
-          <p>Digital-first cards and app-led payment experiences.</p>
-        </a>
-        <a class="cluster-card" href="https://virtualpay.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_virtualpay">
-          <h3>VirtualPay.Creditcard</h3>
-          <p>Virtual card numbers for online and subscription use.</p>
+          <p>Consumer-facing view of digital card payments and wallets.</p>
         </a>
         <a class="cluster-card" href="https://tap.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_tap">
           <h3>Tap.Creditcard</h3>
-          <p>Contactless tap-to-pay flows at physical terminals.</p>
+          <p>Contactless tap-to-pay technology and limits at the terminal.</p>
         </a>
-        <a class="cluster-card" href="https://nfc.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_nfc">
-          <h3>NFC.Creditcard</h3>
-          <p>The radio layer behind contactless card and wallet payments.</p>
+        <a class="cluster-card" href="https://virtualpay.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_virtualpay">
+          <h3>VirtualPay.Creditcard</h3>
+          <p>Virtual cards, tokenization and card-on-file security.</p>
         </a>
-        <a class="cluster-card" href="https://tech.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_tech">
-          <h3>Tech.Creditcard</h3>
-          <p>Overview of next-generation card and payment technology.</p>
+        <a class="cluster-card" href="https://payai.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_payai">
+          <h3>PayAI.Creditcard</h3>
+          <p>AI-assisted fraud detection and routing in payment flows.</p>
+        </a>
+        <a class="cluster-card" href="https://cryptopay.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=cluster_cryptopay">
+          <h3>CryptoPay.Creditcard</h3>
+          <p>How crypto-linked cards connect to traditional gateways.</p>
         </a>
       </div>
     </section>
 
-    <!-- Collection section -->
+    <!-- Collection / disclaimer -->
     <section class="section">
       <h2>Part of The CreditCard Collection</h2>
       <p class="small">
-        DigiPay.Creditcard is one spoke in <strong>The CreditCard Collection</strong> — a network of focused microsites operated by ronarn AS. Each site isolates a specific part of the payments stack and explains it in neutral, factual language.
+        DigiPay.Creditcard is part of <strong>The CreditCard Collection</strong> – a network of focused
+        minisites operated by ronarn AS. Each site explains one piece of how cards and payments work,
+        and then connects you to independent comparison hubs.
       </p>
       <p class="small">
-        We do not issue cards, run gateways or provide financial advice. Our role is to summarize documentation, highlight trade-offs and point you to external providers where you can read the full terms and technical details.
-      </p>
-      <p class="small">
-        Nothing on this page is legal, financial or tax advice. Always rely on your issuer’s official materials and local regulations when evaluating digital payment features and configuring your cards.
+        We do not operate as a payment gateway or card issuer. This page summarises common patterns in
+        digital payment processing based on public documentation. Pricing, features and regulations
+        change frequently – always consult official sources before making business decisions.
       </p>
 
-      <!-- REQUIRED HUB SNIPPET: Technology hub -->
+      <!-- Hub snippet – Technology hub -->
       <div class="hub-link">
         <a href="https://choose.creditcard/technology/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=minisite_to_hub"
-           class="text-sm text-slate-600 hover:text-slate-900">
-          Learn more at the Technology hub
+           class="text-sm text-slate-400 hover:text-slate-200">
+          Learn more in the Technology &amp; Payments hub on Choose.Creditcard
         </a>
       </div>
     </section>
 
     <!-- Bottom CTA -->
     <section class="section">
-      <h2>Ready to Compare Digital-Payment Friendly Cards?</h2>
+      <h2>Comparing Payment Technology and Card Features</h2>
       <p class="small">
-        Use DigiPay.Creditcard to understand how digital payment flows are built, then visit the main comparison hub to find cards that pair well with wallets, subscriptions and app-based spending.
+        Use DigiPay.Creditcard to understand what happens behind the scenes when you or your customers
+        pay with a card. Then visit the Technology &amp; Payments hub to see how cards, wallets and
+        gateways fit together in a broader comparison framework.
       </p>
-      <a class="cta" href="https://choose.creditcard/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=bottom_cta">
-        Go to Choose.Creditcard
+      <a class="cta" href="https://choose.creditcard/technology/?utm_source=digipay.creditcard&utm_medium=referral&utm_campaign=bottom_cta">
+        Go to Technology &amp; Payments hub
       </a>
     </section>
   </main>
@@ -225,3 +287,4 @@
   </footer>
 </body>
 </html>
+```0
